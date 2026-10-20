@@ -270,6 +270,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Curio;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Curio uses your camera to scan real-world objects and turn them into 3D collectibles.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Curio records where you scanned each object so you can remember where you found it.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -321,6 +322,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Curio;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Curio uses your camera to scan real-world objects and turn them into 3D collectibles.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Curio records where you scanned each object so you can remember where you found it.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

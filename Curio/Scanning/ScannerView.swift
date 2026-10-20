@@ -10,6 +10,8 @@ struct ScannerView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var captureModel = CaptureModel()
     @State private var previewModelURL: URL?
+    /// Fetched when the scanner opens, since that's where the object is.
+    @State private var scanLocation: ScanLocation?
 
     var body: some View {
         Group {
@@ -36,6 +38,7 @@ struct ScannerView: View {
             if CaptureModel.isSupported, captureModel.session == nil {
                 captureModel.startNewScan()
             }
+            scanLocation = await ScanLocation.current()
         }
         .onDisappear {
             captureModel.cancelScan()
@@ -50,7 +53,13 @@ struct ScannerView: View {
 
     private func saveToCollection() {
         guard let scanFolder = captureModel.scanFolder else { return }
-        modelContext.insert(CollectedObject(id: scanFolder.id, modelPath: scanFolder.relativeModelPath))
+        modelContext.insert(CollectedObject(
+            id: scanFolder.id,
+            modelPath: scanFolder.relativeModelPath,
+            latitude: scanLocation?.latitude,
+            longitude: scanLocation?.longitude,
+            placeName: scanLocation?.placeName
+        ))
     }
 
     // MARK: - Capture

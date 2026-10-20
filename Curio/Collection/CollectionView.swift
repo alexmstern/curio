@@ -67,9 +67,16 @@ private struct CollectedObjectCell: View {
             ModelThumbnailView(modelURL: collectedObject.modelURL)
                 .aspectRatio(1, contentMode: .fit)
                 .background(.quaternary, in: .rect(cornerRadius: 16))
-            Text(collectedObject.createdAt, format: .dateTime.month().day())
-                .font(.caption)
-                .foregroundStyle(.secondary)
+            VStack(spacing: 2) {
+                if let placeName = collectedObject.placeName {
+                    Text(placeName)
+                        .font(.caption.weight(.medium))
+                }
+                Text(collectedObject.createdAt, format: .dateTime.month().day().year())
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+            .lineLimit(1)
         }
     }
 }
